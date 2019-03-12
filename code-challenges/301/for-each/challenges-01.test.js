@@ -77,10 +77,15 @@ const removeElements = (arr, callback) => {
 CHALLENGE 4
 
 Write a function named removeWithForEach that produces the same output as challenge 3, but uses forEach.
+
+Don't know what to feed in for the first parameter. Also, have no idea how to test on repl.
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithForEach = (arr, callback) => {
-  // Solution code here...
+  arr.forEach(element => {
+    callback(element, arr);
+  });
+  return arr;
 }
 
 /* ------------------------------------------------------------------------------------------------
