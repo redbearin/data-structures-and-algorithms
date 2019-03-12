@@ -46,6 +46,10 @@ const addNumbers = (num, arr, times, callback) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
+Part 1 ---Instructions are super confusing. Pop a number off where? Beginning, end, specific location?
+
+Part 2 --- I have no idea what to feed into the parmeters. I just guessed until something worked. I need to have a process for dissecting these types of problems. 
+
 Write a function named removeOne that takes in a number and an array. If the number divided by three has a remainder of two, pop one element off of the array.
 
 Hint: you may want to look into the modulo operation.
@@ -58,13 +62,13 @@ Return the modified array.
 const removeOne = (num, arr) => {
   if (num % 3 === 2){
     arr.pop();
+    return arr;
   }
-  return arr;
 }
 
 const removeElements = (arr, callback) => {
   for (let i=0; i<arr.length; i++){
-    callback();
+    callback(arr[i], arr);
   }
   return arr;
 }
