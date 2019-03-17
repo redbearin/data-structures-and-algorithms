@@ -24,20 +24,18 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  let arr = str.split(' ');
-  let correct = /[A-Z]/g;
-  let copy = [];
-  arr.forEach(function(word)){
-      if (correct.test(word) is true) { //note that we have to change the is true
-      copy.push(word);
-      }
-      return copy;
-  }
-}
+  let words = str.split(' ');
+  let regex = /[A-Z]/g;
+  let arr = [];
+  words.forEach(function(item) {
+    if (item.match(regex) !== null) {
+      arr.push(item);
+    }
+  });
+  return arr;
+};
 
-//
-//   let regex = /(^[A-Z])|(\s[A-Z])/g;
-//   return str.match(regex);
+
 // };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -46,19 +44,16 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  const isCapitalized = (str) => {
-      let arr = str.split(' ');
-      let correct = /[A-J]/g;
-      let copy = [];
-      arr.forEach(function(word)){
-          if (correct.test(word) is true) { //note that we have to change the is true
-          copy.push(word);
-          }
-          return copy;
-      }
-  }
-
+  let regex = /^[A-J]/g;
+  let output = [];
+  arr.forEach(function(item) {
+    if (item.match(regex) !== null) {
+      output.push(item);
+    }
+  });
+  return output;
 };
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -72,7 +67,8 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  // Solution code here...
+  let regex = /^(O|o)ct(ober)?\b/g;
+  return regex.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -102,8 +98,11 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
-  // Solution code here...
+  let regex = /[aeiou]/gm;
+  let newstring = str.replace(regex, '_');
+  return newstring;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
