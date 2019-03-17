@@ -1,5 +1,5 @@
 'use strict';
-
+// DONE 3/17/18
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
@@ -46,10 +46,6 @@ const addNumbers = (num, arr, times, callback) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Part 1 ---Instructions are super confusing. Pop a number off where? Beginning, end, specific location?
-
-Part 2 --- I have no idea what to feed into the parmeters. I just guessed until something worked. I need to have a process for dissecting these types of problems. 
-
 Write a function named removeOne that takes in a number and an array. If the number divided by three has a remainder of two, pop one element off of the array.
 
 Hint: you may want to look into the modulo operation.
@@ -88,7 +84,11 @@ const removeWithForEach = (arr, callback) => {
   return arr;
 }
 
-/* ------------------------------------------------------------------------------------------------
+/* 
+arr.forEach ((number) => callback(number, arr));
+return arr; 
+
+------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
 Write a function named removeWithAnon that produces the same output as challenges 3 and 4.
@@ -99,7 +99,12 @@ This anonymous function should accept up to three arguments: the element, the in
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithAnon = (arr) => {
-  // Solution code here...
+  arr.forEach(function(element, index, arr) {
+    if (element % 3 === 2){
+      arr.pop();
+    }
+  });
+  return arr;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,7 +125,13 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  let list = [];
+  availableItems.forEach(function(element) {
+    if (element.available === true){
+      list.push(element.name);
+    }
+  });
+  return list;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -133,12 +144,26 @@ Iterate over the array using forEach to determine the output based on several ru
   - If the number is divisible by 5, add the word "Buzz" to the output array.
   - If the number is divisible by both 3 and 5, add the phrase "Fizz Buzz" to the output array.
   - Otherwise, add the number to the output array.
-
 Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  let output = [];
+  arr.forEach(function(element) {
+    if (element % 5 === 0 && element % 3 === 0) {
+      output.push('Fizz Buzz');
+    }
+    else if (element % 5 === 0) {
+      output.push('Buzz');
+    }
+    else if (element % 3 === 0) {
+      output.push('Fizz');
+    }
+    else {
+      output.push(element);
+    }
+  });
+  return output;
 }
 
 /* ------------------------------------------------------------------------------------------------
