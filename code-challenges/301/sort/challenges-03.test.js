@@ -1,5 +1,7 @@
 'use strict';
 
+//import { bigIntLiteral } from "@babel/types";
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
@@ -8,7 +10,8 @@ Source: https://www.w3schools.com/jsref/jsref_sort.asp
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
-  arr.sort(function(a, b){return b-a});
+  arr.sort(function(a, b){
+    return b-a});
   return arr;
 };
 
@@ -38,7 +41,8 @@ Source: https://solidfoundationwebdev.com/blog/posts/sort-an-array-by-element-le
 ------------------------------------------------------------------------------------------------ */
 
 const sortByLength = (arr) => {
-  arr.sort(function(a,b){return a.length - b.length;});
+  arr.sort(function(a,b){
+    return a.length - b.length;});
   return arr;
 };
 
@@ -48,13 +52,14 @@ CHALLENGE 4
 Write a function named alphabetizeBetter that takes in an array of strings and returns the same array, with the strings sorted alphabetically. Capitalization should not change the sort order of two strings.
 
 For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, and so is ['alphabet', 'Alphabet', 'carrot', 'Zebra'].
-Source: https://stackoverflow.com/questions/8996963/how-to-perform-case-insensitive-sorting-in-javascript
+Source: https://stackoverflow.com/questions/8996963/how-to-perform-case-insensitive-sorting-in-javascript (without the to lowercase)
 ------------------------------------------------------------------------------------------------ */
-const alphabetizeBetter = (arr) =>
-  arr.sort(function (a, b) {
-    return a.toLowerCase().localeCompare(b.toLowerCase());
+const alphabetizeBetter = (arr) => {
+  arr.sort(function (a,b) {
+    return a.localeCompare(b);
   });
-
+  return arr;
+}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -67,10 +72,14 @@ Here is an example of the input:
   {name: 'Tote bag', price: 15}
 ];
 Source: https://davidwalsh.name/array-sort
+
+///REMEMBER
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  arr.sort(function(obj1, obj2) {return obj1.price - obj2.price;});
+  arr.sort(function(a, b) {
+    return a.price - b.price;
+  });
   return arr;
 };
 
@@ -86,7 +95,7 @@ split into array https://stackoverflow.com/questions/2858121/convert-comma-separ
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbersByLength = (arr) => {
-  // Solution code here...
+  return arr.sort( (a,b) => a.toString().length - b.toString().length);
 };
 
 /*-----------------------------------------------------------------------------------------------
@@ -108,8 +117,12 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  // Solution code here...
+  arr.sort(function(a,b) {
+    return a.lastName > b.lastName ? 1: -1;
+  });
+  return arr;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -122,7 +135,15 @@ If two people have the same full name, the younger one should come first. Do not
 ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
+  return arr. sort ((a,b) => {
+    if (a.lastName !==b.lastName){
+      return a.lastName > b.lastName ? 1: -1;
+    } else if (a.firstName !== b.firstName) {
+      return a.firstName > b.firstName ? 1: -1;
+    } else {
+      return a.age - b.age;
+    }  
+  }); 
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -148,9 +169,18 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
-  // Solution code here...
+  let days = {
+    'Monday': 1,
+    'Tuesday': 2,
+    'Wednesday': 3,
+    'Thursday': 4,
+    'Friday': 5
+  }
+  arr.sort(function(a, b) {
+    return days[a.dayOfWeek] - days[b.dayOfWeek];
+  });
+  return arr;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
 
