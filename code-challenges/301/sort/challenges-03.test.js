@@ -1,5 +1,5 @@
 'use strict';
-
+//Checked. All required and one stretch complete. 3/17/19
 //import { bigIntLiteral } from "@babel/types";
 
 /* ------------------------------------------------------------------------------------------------
