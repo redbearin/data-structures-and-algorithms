@@ -1,0 +1,9 @@
+'use strict"
+//configure environment aribles
+//in other words, use the .env file
+
+require('dotenv".config();
+//application dependencies
+const express = require('express');
+const app = express();
+
