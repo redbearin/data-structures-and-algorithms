@@ -1,5 +1,7 @@
 'use strict';
 
+//mport { isPrimitive } from "util";
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
@@ -167,27 +169,21 @@ Write a function named countPrimeNumbers that, given an array elements as input,
 You are welcome to use the provided isPrime function.
 ------------------------------------------------------------------------------------------------ */
 
-// const isPrime = (value) => {
-//   for (let i = 2; i < value; i++) {
-//     if (value % i === 0) {
-//       return false;
-//     }
-//   }
-//   return value > 1;
-// };
+const isPrime = (value) => {
+  for (let i = 2; i < value; i++) {
+    if (value % i === 0) {
+      return false;
+    }
+  }
+  return value > 1;
+};
 
-// const countPrimeNumbers = (arr) => {
-//   let reducer = (accumulator, currentValue) => {
-//     const isPrime = (currentValue) => {
-//       for (let i = 2; i < value; i++) {
-//         if (value % i === 0) {
-//           return false;
-//         }
-//       }
-//       return value > 1;
-//     };
-//   return arr.reduce(reducer);
-// };
+const countPrimeNumbers = (arr) => {
+ return arr.reduce((accumulator, currentValue) => isPrime(currentValue) ?accumulator + 1: accumulator);
+};
+
+//ternary -- When ? what to do if true: what to do if false
+//same as an if, then statement
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
