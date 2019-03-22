@@ -104,12 +104,18 @@ hasChildrenValues(characters, 'Eddard') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  arr.character.children.length;
+  let nameMatch = arr.filter(element => element.name.match(character));
+  let valueArray = Object.values(nameMatch[0]);
+  return valueArray[2].length > 0 ? true : false;
 };
 
-//find the name of the object based on the person's name
-//find the children.length
-
+//find the the object with the name that matches
+//check to see if this object has children (children.length)
+//alternative approach (which seems easier to me)
+// const hasChildrenValues = (arr, character) => {
+//   let nameMatch = arr.filter(element => element.name.match(character));
+//   return nameMatch[0].children.length > 0 ? true : false;
+// };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -119,8 +125,11 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  let nameMatch = arr.filter(element => element.name.match(character));
+  let entry = Object.entries(nameMatch[0]) [2];
+  return entry[1].length > 0 ? true : false;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
