@@ -71,7 +71,7 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  return arr.reduce((accumulator, currentValue) => 
+  return arr.reduce((accumulator, currentValue) =>
     accumulator.concat(currentValue.name), []);
 };
 /* ------------------------------------------------------------------------------------------------
@@ -179,7 +179,7 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (arr) => {
- return arr.reduce((accumulator, currentValue) => isPrime(currentValue) ?accumulator + 1: accumulator);
+  return arr.reduce((accumulator, currentValue) => isPrime(currentValue) ?accumulator + 1: accumulator, 0);
 };
 
 //ternary -- When ? what to do if true: what to do if false
